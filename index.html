@@ -52,12 +52,12 @@ button:active{transform:scale(.97)}
 </button>
 <span id="nameStatus" class="status">✔︎ Nukopijuota</span>
 
-<!-- IBAN + SEB logotipas -->
-<p>
-  <strong>LT897044000917616656</strong>
+<!-- IBAN + SEB logotipas kairėje, 2× didesnis -->
+<p style="display:flex;justify-content:center;align-items:center;gap:.6rem">
   <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/SEB_logo.svg"
        alt="SEB logo"
-       style="height:1.2rem;vertical-align:middle;margin-left:.4rem">
+       style="height:2.4rem">
+  <strong>LT897044000917616656</strong>
 </p>
 <button onclick="copyToClipboard('LT897044000917616656','ibanStatus')">
   Kopijuoti sąskaitą
@@ -70,7 +70,7 @@ button:active{transform:scale(.97)}
 function copyToClipboard(text, statusId){
   navigator.clipboard.writeText(text).then(()=>{
     const el = document.getElementById(statusId);
-    el.style.opacity = 1;                // parodyti „Nukopijuota“
+    el.style.opacity = 1;               // parodyti „Nukopijuota“
     setTimeout(()=>{ el.style.opacity = 0; }, 3000); // paslėpti po 3 s
   });
 }
