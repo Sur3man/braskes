@@ -3,43 +3,53 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🍓Apmokėjimas už braškes🍓</title>
+<title>🍓 Apmokėjimas už braškes 🍓</title>
 <style>
+/* ——— basic layout ——— */
 body{
   font-family:sans-serif;
   text-align:center;
-  margin-top:2rem;
+  margin:2rem 1rem;
 }
+/* ——— headline & data ——— */
+h2{margin-bottom:2rem}
+p{margin:.7rem 0;font-size:1.1rem}
+strong{font-size:1.25rem}
+/* ——— buttons ——— */
 button{
-  padding:.7rem 1.2rem;
+  display:block;            /* full-width block for easy tap */
+  width:100%;
+  max-width:320px;           /* but not too wide on large screens */
+  margin:.6rem auto;
+  padding:1rem;
   font-size:1rem;
   border:0;
-  border-radius:.5rem;
+  border-radius:.6rem;
+  background:#f0f0f5;
   cursor:pointer;
   box-shadow:0 2px 6px #0002;
+  transition:transform .05s;
 }
-button+button{                 /* tarpas tarp mygtukų */
-  margin-left:.8rem;
-}
+button:active{transform:scale(.97)}
 </style>
 </head>
 <body>
 
-<h2>🍓Apmokėjimas už braškes 🍓</h2>
-<p><strong>Rasa Kilmanienė</strong><br><strong>IBAN LT897044000917616656</strong></p>
+<h2>🍓 Apmokėjimas už braškes 🍓</h2>
 
-<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('Sąskaitos numeris nukopijuotas!')">
-  Kopijuoti sąskaitos numerį
-</button>
+<!-- Vardas -->
+<p><strong>Rasa Kilmanienė</strong></p>
 <button onclick="navigator.clipboard.writeText('Rasa Kilmanienė');alert('Vardas pavardė nukopijuota!')">
   Kopijuoti vardą pavardę
 </button>
 
-<p style="margin-top:1.5rem;font-size:.9rem">
-  Atsidarę savo banko programėlę – nusikopijuokite
-</p>
+<!-- IBAN -->
+<p><strong>LT897044000917616656</strong></p>
+<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('Sąskaitos numeris nukopijuotas!')">
+  Kopijuoti sąskaitos numerį
+</button>
 
-<p style="margin-top:1.5rem;font-size:1rem"><strong>SKANAUS! 🍓</strong></p>
+<p style="margin-top:2rem;font-size:1.1rem"><strong>SKANAUS! 🍓</strong></p>
 
 </body>
 </html>
