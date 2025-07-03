@@ -53,7 +53,7 @@ button:active{transform:scale(.97)}
 <span id="nameStatus" class="status">✔︎ Nukopijuota</span>
 
 <!-- IBAN -->
-<p><strong>LT897044000917616656</strong></p>
+<p><strong>SEB: LT897044000917616656</strong></p>
 <button onclick="copyToClipboard('LT897044000917616656','ibanStatus')">
   Kopijuoti sąskaitos numerį
 </button>
@@ -66,7 +66,7 @@ function copyToClipboard(text, statusId){
   navigator.clipboard.writeText(text).then(()=>{
     const el = document.getElementById(statusId);
     el.style.opacity = 1;               // parodyti „Nukopijuota“
-    setTimeout(()=>{ el.style.opacity = 0; }, 2000); // paslėpti po 2 s
+    setTimeout(()=>{ el.style.opacity = 0; }, 3000); // paslėpti po 3 s
   });
 }
 </script>
