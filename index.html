@@ -89,7 +89,7 @@ function copyToClipboard(text, statusId){
   navigator.clipboard.writeText(text).then(()=>{
     const el = document.getElementById(statusId);
     el.style.opacity = 1;                // parodyti „Nukopijuota“
-    setTimeout(()=>{ el.style.opacity = 0; }, 3000); // paslėpti po 3 s
+    setTimeout(()=>{ el.style.opacity = 0; }, 2500); // paslėpti po 2.5 s
   });
 }
 </script>
