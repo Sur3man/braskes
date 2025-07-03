@@ -31,6 +31,14 @@ button{
   transition:transform .05s;
 }
 button:active{transform:scale(.97)}
+/* ——— copy status ——— */
+.status{
+  font-size:.9rem;
+  color:#2e7d32;            /* green */
+  opacity:0;
+  transition:opacity .3s;
+  margin-top:.2rem;
+}
 </style>
 </head>
 <body>
@@ -39,17 +47,29 @@ button:active{transform:scale(.97)}
 
 <!-- Vardas -->
 <p><strong>Rasa Kilmanienė</strong></p>
-<button onclick="navigator.clipboard.writeText('Rasa Kilmanienė');alert('Vardas pavardė nukopijuota!')">
+<button onclick="copyToClipboard('Rasa Kilmanienė','nameStatus')">
   Kopijuoti vardą pavardę
 </button>
+<span id="nameStatus" class="status">✔︎ Nukopijuota</span>
 
 <!-- IBAN -->
 <p><strong>LT897044000917616656</strong></p>
-<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('Sąskaitos numeris nukopijuotas!')">
+<button onclick="copyToClipboard('LT897044000917616656','ibanStatus')">
   Kopijuoti sąskaitos numerį
 </button>
+<span id="ibanStatus" class="status">✔︎ Nukopijuota</span>
 
 <p style="margin-top:2rem;font-size:1.1rem"><strong>SKANAUS! 😋</strong></p>
+
+<script>
+function copyToClipboard(text, statusId){
+  navigator.clipboard.writeText(text).then(()=>{
+    const el = document.getElementById(statusId);
+    el.style.opacity = 1;               // parodyti „Nukopijuota“
+    setTimeout(()=>{ el.style.opacity = 0; }, 2000); // paslėpti po 2 s
+  });
+}
+</script>
 
 </body>
 </html>
