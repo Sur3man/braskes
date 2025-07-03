@@ -19,7 +19,7 @@ strong{font-size:1.25rem}
 button{
   display:block;            /* full-width block for easy tap */
   width:100%;
-  max-width:320px;           /* but not too wide on large screens */
+  max-width:320px;
   margin:.6rem auto;
   padding:1rem;
   font-size:1rem;
@@ -29,23 +29,27 @@ button{
   cursor:pointer;
   box-shadow:0 2px 6px #0002;
   transition:transform .05s;
+  /* make the label unselectable */
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  user-select:none;
 }
 button:active{transform:scale(.97)}
 /* ——— copy status ——— */
 .status{
   font-size:.9rem;
-  color:#2e7d32;            /* green */
+  color:#2e7d32;
   opacity:0;
   transition:opacity .3s;
   margin-top:.2rem;
 }
 /* ——— photos ——— */
 .photo{
-  max-width:700px;          /* never exceed 700 px */
-  width:90%;                /* shrink gracefully on mobile */
+  max-width:700px;
+  width:90%;
   display:block;
-  margin:1.5rem auto;       /* same vertical gap as other blocks */
-  border:8px solid #fff;    /* white frame */
+  margin:1.5rem auto;
+  border:8px solid #fff;
   box-shadow:0 2px 8px #0003;
 }
 </style>
@@ -73,7 +77,7 @@ button:active{transform:scale(.97)}
 </button>
 <span id="ibanStatus" class="status">✔︎ Nukopijuota</span>
 
-<p style="margin-top:2rem;font-size:1.1rem"><strong>SKANAUS! 😋</strong></p>
+<p style="margin-top:1.5rem;font-size:1.1rem"><strong>SKANAUS! 😋</strong></p>
 
 <!-- ——— photos ——— -->
 <img class="photo"
