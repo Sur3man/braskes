@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🍓 Ekologiškos braškės 🍓</title>
 <style>
-/* ——— basic layout ——— */
-html,body{max-width:100%;overflow-x:hidden}     /* no sideways jiggle */
+/* ——— page-edge & overscroll fixes ——— */
+html{
+  height:100%;
+  overscroll-behavior:none;   /* stop elastic bounce top & bottom */
+}
 body{
   font-family:sans-serif;
   text-align:center;
-  margin:2rem 1rem 1rem;        /* bottom margin a bit smaller */
-  overscroll-behavior:contain;  /* stop rubber-band bounce/flicker */
+  margin:2rem 1rem;
+  background:#fff;            /* so any flash matches page */
+  overflow-x:hidden;          /* no sideways jiggle */
 }
 /* ——— headline & data ——— */
 h2{margin-bottom:2rem}
@@ -19,11 +23,11 @@ p{margin:.7rem 0;font-size:1.1rem}
 strong{font-size:1.25rem}
 /* ——— buttons ——— */
 button{
-  display:block; width:100%; max-width:320px; margin:.6rem auto;
-  padding:1rem; font-size:1rem; border:0; border-radius:.6rem;
-  background:#f0f0f5; cursor:pointer; box-shadow:0 2px 6px #0002;
-  transition:transform .05s;
-  -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
+  display:block;width:100%;max-width:320px;margin:.6rem auto;
+  padding:1rem;font-size:1rem;border:0;border-radius:.6rem;
+  background:#f0f0f5;cursor:pointer;box-shadow:0 2px 6px #0002;
+  transition:transform .05s;-webkit-user-select:none;user-select:none;
+  -webkit-touch-callout:none;
 }
 button:active{transform:scale(.97)}
 /* ——— copy status ——— */
@@ -33,6 +37,9 @@ button:active{transform:scale(.97)}
   max-width:700px;width:90%;display:block;margin:1.5rem auto;
   border:8px solid #fff;box-shadow:0 2px 8px #0003;
 }
+/* ——— invisible bottom spacer ——— */
+.bottom-gap{height:60px;width:1px;margin:0 auto}
+/* (60 px gives the browser “something” to scroll into at the very end) */
 </style>
 </head>
 <body>
@@ -58,10 +65,14 @@ button:active{transform:scale(.97)}
 <img class="photo" src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%201%20photo.webp" alt="Ekologiškos braškės 1">
 <img class="photo" src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%202%20photo.webp" alt="Ekologiškos braškės 2">
 
+<!-- invisible spacer to soften scroll deceleration -->
+<div class="bottom-gap"></div>
+
 <script>
 function copyToClipboard(text,id){
   navigator.clipboard.writeText(text).then(()=>{
-    const s=document.getElementById(id); s.style.opacity=1;
+    const s=document.getElementById(id);
+    s.style.opacity=1;
     setTimeout(()=>{s.style.opacity=0;},2500);
   });
 }
