@@ -39,6 +39,15 @@ button:active{transform:scale(.97)}
   transition:opacity .3s;
   margin-top:.2rem;
 }
+/* ——— photos ——— */
+.photo{
+  max-width:700px;          /* never exceed 700 px */
+  width:90%;                /* shrink gracefully on mobile */
+  display:block;
+  margin:1.5rem auto;       /* same vertical gap as other blocks */
+  border:8px solid #fff;    /* white frame */
+  box-shadow:0 2px 8px #0003;
+}
 </style>
 </head>
 <body>
@@ -52,7 +61,7 @@ button:active{transform:scale(.97)}
 </button>
 <span id="nameStatus" class="status">✔︎ Nukopijuota</span>
 
-<!-- IBAN + SEB logotipas kairėje, 2× didesnis -->
+<!-- IBAN + SEB logotipas kairėje -->
 <p style="display:flex;justify-content:center;align-items:center;gap:.6rem">
   <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/SEB_logo.svg"
        alt="SEB logo"
@@ -66,12 +75,21 @@ button:active{transform:scale(.97)}
 
 <p style="margin-top:2rem;font-size:1.1rem"><strong>SKANAUS! 😋</strong></p>
 
+<!-- ——— photos ——— -->
+<img class="photo"
+     src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%201%20photo.webp"
+     alt="Ekologiškos braškės 1">
+
+<img class="photo"
+     src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%202%20photo.webp"
+     alt="Ekologiškos braškės 2">
+
 <script>
 function copyToClipboard(text, statusId){
   navigator.clipboard.writeText(text).then(()=>{
     const el = document.getElementById(statusId);
-    el.style.opacity = 1;               // parodyti „Nukopijuota“
-    setTimeout(()=>{ el.style.opacity = 0; }, 2000); // paslėpti po 2 s
+    el.style.opacity = 1;                // parodyti „Nukopijuota“
+    setTimeout(()=>{ el.style.opacity = 0; }, 3000); // paslėpti po 3 s
   });
 }
 </script>
