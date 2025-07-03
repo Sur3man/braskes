@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lt">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pay Rasa Kilmanienė</title>
+<title>🍓Apmokėjimas už braškes🍓</title>
 <style>
 body{
   font-family:sans-serif;
@@ -18,23 +18,28 @@ button{
   cursor:pointer;
   box-shadow:0 2px 6px #0002;
 }
-button+button{                 /* adds a small gap between the two buttons */
+button+button{                 /* tarpas tarp mygtukų */
   margin-left:.8rem;
 }
 </style>
 </head>
 <body>
 
-<h2>Pay for strawberries 🍓</h2>
-<p>Rasa Kilmanienė<br>IBAN LT897044000917616656</p>
+<h2>🍓Apmokėjimas už braškes 🍓</h2>
+<p><strong>Rasa Kilmanienė</strong><br><strong>IBAN LT897044000917616656</strong></p>
 
-<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('IBAN copied!')">
-  Copy IBAN
+<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('Sąskaitos numeris nukopijuotas!')">
+  Kopijuoti sąskaitos numerį
 </button>
-<button onclick="navigator.clipboard.writeText('Rasa Kilmanienė');alert('Name copied!')">
-  Copy Name
+<button onclick="navigator.clipboard.writeText('Rasa Kilmanienė');alert('Vardas pavardė nukopijuota!')">
+  Kopijuoti vardą pavardę
 </button>
 
-<p style="margin-top:1.5rem;font-size:.9rem">Open your banking app and paste.</p>
+<p style="margin-top:1.5rem;font-size:.9rem">
+  Atsidarę savo banko programėlę – nusikopijuokite
+</p>
+
+<p style="margin-top:1.5rem;font-size:1rem"><strong>SKANAUS! 🍓</strong></p>
+
 </body>
 </html>
