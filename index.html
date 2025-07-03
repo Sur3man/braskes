@@ -6,10 +6,12 @@
 <title>🍓 Ekologiškos braškės 🍓</title>
 <style>
 /* ——— basic layout ——— */
+html,body{max-width:100%;overflow-x:hidden}     /* no sideways jiggle */
 body{
   font-family:sans-serif;
   text-align:center;
-  margin:2rem 1rem;
+  margin:2rem 1rem 1rem;        /* bottom margin a bit smaller */
+  overscroll-behavior:contain;  /* stop rubber-band bounce/flicker */
 }
 /* ——— headline & data ——— */
 h2{margin-bottom:2rem}
@@ -17,40 +19,19 @@ p{margin:.7rem 0;font-size:1.1rem}
 strong{font-size:1.25rem}
 /* ——— buttons ——— */
 button{
-  display:block;            /* full-width block for easy tap */
-  width:100%;
-  max-width:320px;
-  margin:.6rem auto;
-  padding:1rem;
-  font-size:1rem;
-  border:0;
-  border-radius:.6rem;
-  background:#f0f0f5;
-  cursor:pointer;
-  box-shadow:0 2px 6px #0002;
+  display:block; width:100%; max-width:320px; margin:.6rem auto;
+  padding:1rem; font-size:1rem; border:0; border-radius:.6rem;
+  background:#f0f0f5; cursor:pointer; box-shadow:0 2px 6px #0002;
   transition:transform .05s;
-  /* make the label unselectable */
-  -webkit-user-select:none;
-  -webkit-touch-callout:none;
-  user-select:none;
+  -webkit-user-select:none; user-select:none; -webkit-touch-callout:none;
 }
 button:active{transform:scale(.97)}
 /* ——— copy status ——— */
-.status{
-  font-size:.9rem;
-  color:#2e7d32;
-  opacity:0;
-  transition:opacity .3s;
-  margin-top:.2rem;
-}
+.status{font-size:.9rem;color:#2e7d32;opacity:0;transition:opacity .3s;margin-top:.2rem}
 /* ——— photos ——— */
 .photo{
-  max-width:700px;
-  width:90%;
-  display:block;
-  margin:1.5rem auto;
-  border:8px solid #fff;
-  box-shadow:0 2px 8px #0003;
+  max-width:700px;width:90%;display:block;margin:1.5rem auto;
+  border:8px solid #fff;box-shadow:0 2px 8px #0003;
 }
 </style>
 </head>
@@ -60,40 +41,28 @@ button:active{transform:scale(.97)}
 
 <!-- Vardas -->
 <p><strong>Rasa Kilmanienė</strong></p>
-<button onclick="copyToClipboard('Rasa Kilmanienė','nameStatus')">
-  Kopijuoti adresatą
-</button>
+<button onclick="copyToClipboard('Rasa Kilmanienė','nameStatus')">Kopijuoti adresatą</button>
 <span id="nameStatus" class="status">✔︎ Nukopijuota</span>
 
-<!-- IBAN + SEB logotipas kairėje -->
+<!-- IBAN + SEB logotipas -->
 <p style="display:flex;justify-content:center;align-items:center;gap:.6rem">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/SEB_logo.svg"
-       alt="SEB logo"
-       style="height:2.4rem">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/SEB_logo.svg" alt="SEB logo" style="height:2.4rem">
   <strong>LT897044000917616656</strong>
 </p>
-<button onclick="copyToClipboard('LT897044000917616656','ibanStatus')">
-  Kopijuoti sąskaitą
-</button>
+<button onclick="copyToClipboard('LT897044000917616656','ibanStatus')">Kopijuoti sąskaitą</button>
 <span id="ibanStatus" class="status">✔︎ Nukopijuota</span>
 
 <p style="margin-top:1.5rem;font-size:1.1rem"><strong>SKANAUS! 😋</strong></p>
 
-<!-- ——— photos ——— -->
-<img class="photo"
-     src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%201%20photo.webp"
-     alt="Ekologiškos braškės 1">
-
-<img class="photo"
-     src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%202%20photo.webp"
-     alt="Ekologiškos braškės 2">
+<!-- Fotos -->
+<img class="photo" src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%201%20photo.webp" alt="Ekologiškos braškės 1">
+<img class="photo" src="https://raw.githubusercontent.com/Sur3man/braskes/refs/heads/main/Bras%CC%8Ckiu%CC%A8%20bras%CC%8Cke%CC%87s%202%20photo.webp" alt="Ekologiškos braškės 2">
 
 <script>
-function copyToClipboard(text, statusId){
+function copyToClipboard(text,id){
   navigator.clipboard.writeText(text).then(()=>{
-    const el = document.getElementById(statusId);
-    el.style.opacity = 1;                // parodyti „Nukopijuota“
-    setTimeout(()=>{ el.style.opacity = 0; }, 2500); // paslėpti po 2.5 s
+    const s=document.getElementById(id); s.style.opacity=1;
+    setTimeout(()=>{s.style.opacity=0;},2500);
   });
 }
 </script>
