@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pay Rasa Kilmanienė</title>
+<style>
+body{
+  font-family:sans-serif;
+  text-align:center;
+  margin-top:2rem;
+}
+button{
+  padding:.7rem 1.2rem;
+  font-size:1rem;
+  border:0;
+  border-radius:.5rem;
+  cursor:pointer;
+  box-shadow:0 2px 6px #0002;
+}
+button+button{                 /* adds a small gap between the two buttons */
+  margin-left:.8rem;
+}
+</style>
+</head>
+<body>
+
+<h2>Pay for strawberries 🍓</h2>
+<p>Rasa Kilmanienė<br>IBAN LT897044000917616656</p>
+
+<button onclick="navigator.clipboard.writeText('LT897044000917616656');alert('IBAN copied!')">
+  Copy IBAN
+</button>
+<button onclick="navigator.clipboard.writeText('Rasa Kilmanienė');alert('Name copied!')">
+  Copy Name
+</button>
+
+<p style="margin-top:1.5rem;font-size:.9rem">Open your banking app and paste.</p>
+</body>
+</html>
